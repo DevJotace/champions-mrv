@@ -90,6 +90,63 @@
             background-color: #25D366;
         }
 
+        /* CARDS DE FAIXA */
+        .faixa-card {
+            padding: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .faixa-header {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faixa-header .badge {
+            background: #00D664;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .faixa-header .renda {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .faixa-body {
+            padding: 15px;
+        }
+
+        .faixa-body .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
+        }
+
+        .faixa-body .row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faixa-body .destaque {
+            color: #004D40;
+            background: #e0f2f1;
+            padding: 5px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+
         /* GRID DE LINKS */
         .grid {
             display: grid;
@@ -153,7 +210,7 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            width: 33%;
+            width: 25%; /* 4 botões agora */
         }
 
         .nav-item i { font-size: 1.5rem; margin-bottom: 4px; } /* Ícone fake com emoji */
@@ -265,7 +322,117 @@
             </div>
         </div>
 
-        <!-- ABA 3: ZAP -->
+        <!-- ABA 3: TABELAS (NOVA) -->
+        <div id="tab-tabelas" class="content">
+            <h3 style="text-align:center; color:#004D40; margin-bottom:15px;">📊 Regras MCMV 2026 (RN)</h3>
+            
+            <!-- FAIXA 1 -->
+            <div class="card faixa-card" style="border-left: 5px solid #00D664;">
+                <div class="faixa-header">
+                    <span class="badge">Faixa 1</span>
+                    <span class="renda">Até R$ 2.850</span>
+                </div>
+                <div class="faixa-body">
+                    <div class="row">
+                        <span>🏠 Teto Natal:</span>
+                        <strong>R$ 270.000</strong>
+                    </div>
+                    <div class="row">
+                        <span>🏠 Teto Parnamirim:</span>
+                        <strong>R$ 264.000</strong>
+                    </div>
+                    <div class="row destaque">
+                        <span>📉 Subsídio Máx:</span>
+                        <strong>Até R$ 55.000</strong>
+                    </div>
+                    <div class="row">
+                        <span>Percentual Juros (NE):</span>
+                        <strong>4,00% a 4,50% a.a.</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAIXA 2 -->
+            <div class="card faixa-card" style="border-left: 5px solid #2ecc71;">
+                <div class="faixa-header">
+                    <span class="badge">Faixa 2</span>
+                    <span class="renda">R$ 2.850 a R$ 4.700</span>
+                </div>
+                <div class="faixa-body">
+                    <div class="row">
+                        <span>🏠 Teto Natal:</span>
+                        <strong>R$ 270.000</strong>
+                    </div>
+                    <div class="row">
+                        <span>🏠 Teto Parnamirim:</span>
+                        <strong>R$ 264.000</strong>
+                    </div>
+                    <div class="row destaque">
+                        <span>📉 Subsídio Máx:</span>
+                        <strong>Até R$ 55.000</strong>
+                    </div>
+                    <div class="row">
+                        <span>Percentual Juros (NE):</span>
+                        <strong>4,75% a 6,50% a.a.</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAIXA 3 -->
+            <div class="card faixa-card" style="border-left: 5px solid #f1c40f;">
+                <div class="faixa-header">
+                    <span class="badge" style="background:#f1c40f; color:#333;">Faixa 3</span>
+                    <span class="renda">R$ 4.700 a R$ 8.600</span>
+                </div>
+                <div class="faixa-body">
+                    <div class="row">
+                        <span>🏠 Teto Natal:</span>
+                        <strong>R$ 350.000</strong>
+                    </div>
+                    <div class="row">
+                        <span>🏠 Teto Parnamirim:</span>
+                        <strong>R$ 350.000</strong>
+                    </div>
+                    <div class="row destaque">
+                        <span>📉 Subsídio:</span>
+                        <strong>R$ 0,00</strong>
+                    </div>
+                    <div class="row">
+                        <span>Percentual Juros (NE):</span>
+                        <strong>7,66% a 8,16% a.a.</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAIXA 4 / SBPE -->
+            <div class="card faixa-card" style="border-left: 5px solid #e74c3c;">
+                <div class="faixa-header">
+                    <span class="badge" style="background:#e74c3c;">Faixa 4 (SBPE)</span>
+                    <span class="renda">R$ 8.600 a R$ 12.000</span>
+                </div>
+                <div class="faixa-body">
+                    <div class="row">
+                        <span>🏠 Teto Geral:</span>
+                        <strong>R$ 500.000</strong>
+                    </div>
+                    <div class="row destaque">
+                        <span>📉 Subsídio:</span>
+                        <strong>R$ 0,00</strong>
+                    </div>
+                    <div class="row">
+                        <span>Percentual Juros:</span>
+                        <strong>~ 10,5% a.a. + TR</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align:center; font-size:0.8rem; color:#666; margin-top:20px;">
+                * Valores de referência para Natal/Parnamirim (RN).<br>
+                * Juros variam conforme perfil (Cotista FGTS vs Não Cotista).
+            </p>
+        </div>
+
+        <!-- ABA 4: ZAP -->
         <div id="tab-zap" class="content">
             <div class="card" style="border-left-color: #25D366;">
                 <h3>⚡ Zap Rápido</h3>
@@ -285,6 +452,9 @@
     <nav class="bottom-nav">
         <button class="nav-item active" onclick="switchTab('scripts')">
             <span>📜</span> Scripts
+        </button>
+        <button class="nav-item" onclick="switchTab('tabelas')">
+            <span>📊</span> Tabelas
         </button>
         <button class="nav-item" onclick="switchTab('links')">
             <span>🔗</span> Links
@@ -307,11 +477,12 @@
             // Ativa o selecionado
             document.getElementById('tab-' + tabName).classList.add('active');
             
-            // Acha o botão correspondente e ativa (gambiarra leve mas funcional)
+            // Ativa botão correspondente
             const buttons = document.querySelectorAll('.nav-item');
             if(tabName === 'scripts') buttons[0].classList.add('active');
-            if(tabName === 'links') buttons[1].classList.add('active');
-            if(tabName === 'zap') buttons[2].classList.add('active');
+            if(tabName === 'tabelas') buttons[1].classList.add('active');
+            if(tabName === 'links') buttons[2].classList.add('active');
+            if(tabName === 'zap') buttons[3].classList.add('active');
         }
 
         // Lógica de Copiar
