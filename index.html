@@ -90,63 +90,6 @@
             background-color: #25D366;
         }
 
-        /* CARDS DE FAIXA */
-        .faixa-card {
-            padding: 0;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .faixa-header {
-            background: #f8f9fa;
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faixa-header .badge {
-            background: #00D664;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .faixa-header .renda {
-            font-size: 0.9rem;
-            color: #555;
-            font-weight: 600;
-        }
-
-        .faixa-body {
-            padding: 15px;
-        }
-
-        .faixa-body .row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 5px;
-        }
-
-        .faixa-body .row:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .faixa-body .destaque {
-            color: #004D40;
-            background: #e0f2f1;
-            padding: 5px;
-            border-radius: 4px;
-            margin: 5px 0;
-        }
-
         /* GRID DE LINKS */
         .grid {
             display: grid;
@@ -240,6 +183,63 @@
             opacity: 1;
             bottom: 100px;
         }
+
+        /* CARDS DE FAIXA */
+        .faixa-card {
+            padding: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .faixa-header {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faixa-header .badge {
+            background: #00D664;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .faixa-header .renda {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .faixa-body {
+            padding: 15px;
+        }
+
+        .faixa-body .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
+        }
+
+        .faixa-body .row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faixa-body .destaque {
+            color: #004D40;
+            background: #e0f2f1;
+            padding: 5px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -252,32 +252,61 @@
     <main>
         <!-- ABA 1: SCRIPTS -->
         <div id="tab-scripts" class="content active">
+            
+            <!-- SEÇÃO: INTERMEDIÁRIOS (NEGOCIAÇÃO) -->
             <div class="card">
-                <h3>👋 1. Abordagem (Lead Site)</h3>
-                <p class="preview">"Oi [Nome], vi que simulou..."</p>
-                <button class="action-btn copy-btn" data-text="Oi [Nome], tudo bem? Aqui é o Junior da MRV! 🏗️ Vi que você fez uma simulação de apartamento na região [Região]. O valor da parcela que apareceu pra você ficou dentro do que esperava? 🤔 Tenho uma condição especial essa semana.">
+                <h3>🤔 1. Quebra de Objeção (Aluguel)</h3>
+                <p class="preview">"Pagar aluguel ou parcelar..."</p>
+                <button class="action-btn copy-btn" data-text="[Nome], fiz uma conta rápida aqui: R$ 800 de aluguel em 5 anos são R$ 48.000 jogados fora. 💸 Com a parcela do seu apê MRV (que é decrescente!), você estaria investindo no SEU patrimônio. Vamos trocar esse boleto de despesa por um de investimento?">
                     📄 Copiar Script
                 </button>
             </div>
 
             <div class="card">
-                <h3>📅 2. Agendar Visita</h3>
-                <p class="preview">"Tenho um decorado incrível..."</p>
-                <button class="action-btn copy-btn" data-text="[Nome], tenho um decorado exatamente no perfil que você buscou! 😍 A MRV liberou condições exclusivas pra fechar essa semana. Consegue vir visitar amanhã às 14h ou prefere às 16h?">
+                <h3>📉 2. Urgência (Virada de Tabela)</h3>
+                <p class="preview">"A tabela vai mudar..."</p>
+                <button class="action-btn copy-btn" data-text="[Nome], preciso ser transparente: a tabela de preços vira amanhã e essas condições de juros reduzidos podem não se manter. 📉 Consegue me enviar a documentação até as 17h pra eu tentar travar sua proposta no sistema antigo?">
                     📄 Copiar Script
                 </button>
             </div>
 
             <div class="card">
-                <h3>💰 3. Quebra de Objeção (Entrada)</h3>
-                <p class="preview">"A entrada tá pesada? Relaxa..."</p>
-                <button class="action-btn copy-btn" data-text="Entendo, [Nome]. A entrada costuma assustar, mas relaxa! 😌 Aqui na MRV a gente parcela a entrada em até 48x (ou mais dependendo da obra) e você pode usar seu FGTS pra abater. Vamos simular sem compromisso pra ver como fica suave no seu bolso?">
+                <h3>💰 3. Foco Investidor (Rentabilidade)</h3>
+                <p class="preview">"Valorização da região..."</p>
+                <button class="action-btn copy-btn" data-text="[Nome], esse imóvel não é só moradia, é rentabilidade. 💰 Com a valorização da região [Bairro], quem comprar na planta agora pega toda a curva de alta. Daqui a 2 anos, esse ágio vai valer muito. Quer ver os números?">
+                    📄 Copiar Script
+                </button>
+            </div>
+
+            <!-- SEÇÃO: FOLLOW-UP (RESGATE) -->
+            <h3 style="color:#004D40; margin:25px 0 15px; text-align:center;">🔄 Follow-up (Resgate)</h3>
+
+            <div class="card" style="border-left: 5px solid #E67E22;">
+                <h3>👻 4. O "Sumido" (Técnica do Desapego)</h3>
+                <p class="preview">"Posso encerrar seu atendimento?"</p>
+                <button class="action-btn copy-btn" data-text="Oi [Nome], tudo bem? Tô organizando minha agenda aqui e vi que nossa conversa parou. Você ainda tem interesse no apê ou já resolveu essa questão? Se não tiver mais interesse, me avisa que eu arquivo sua ficha aqui pra não te incomodar, beleza?">
+                    📄 Copiar Script
+                </button>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #E67E22;">
+                <h3>📅 5. Resgate Mensal (Novas Condições)</h3>
+                <p class="preview">"Mudou a regra do mês..."</p>
+                <button class="action-btn copy-btn" data-text="Oi [Nome], faz um tempo que a gente se falou! 👋 As condições do Minha Casa Minha Vida mudaram agora para esse mês (taxas e subsídios). Quer que eu atualize sua simulação sem compromisso pra ver se seu poder de compra aumentou?">
+                    📄 Copiar Script
+                </button>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #E67E22;">
+                <h3>🏗️ 6. Novidade na Obra (Prova Social)</h3>
+                <p class="preview">"A obra avançou..."</p>
+                <button class="action-btn copy-btn" data-text="[Nome], passei hoje na obra do [Empreendimento] e lembrei de você! 🏗️ Tá subindo rápido demais. Liberaram umas unidades com vista livre que são a sua cara. Bora retomar aquele papo antes que acabem?">
                     📄 Copiar Script
                 </button>
             </div>
             
              <div class="card">
-                <h3>📝 4. Checklist Documentos</h3>
+                <h3>📝 7. Checklist Documentos</h3>
                 <p class="preview">Lista completa pra aprovação...</p>
                 <button class="action-btn copy-btn" data-text="Pra gente aprovar sua carta de crédito, preciso de fotos legíveis de: 
 ✅ RG e CPF (ou CNH)
@@ -290,84 +319,9 @@
                     📄 Copiar Lista
                 </button>
             </div>
-             <div class="card">
-                <h3>🔥 5. Urgência (Últimas Unidades)</h3>
-                <p class="preview">"A tabela vira amanhã..."</p>
-                <button class="action-btn copy-btn" data-text="[Nome], preciso ser transparente com você: a tabela de preços vai virar amanhã e essas condições de juros reduzidos (4% a.a.) podem não se manter. 📉 Consegue me enviar a documentação até as 17h pra eu travar sua proposta no sistema antigo?">
-                    📄 Copiar Script
-                </button>
-            </div>
-
-            <div class="card">
-                <h3>🤔 6. Comparativo Aluguel</h3>
-                <p class="preview">"Pagar aluguel ou parcelar..."</p>
-                <button class="action-btn copy-btn" data-text="[Nome], fiz uma conta rápida aqui: R$ 800 de aluguel em 5 anos são R$ 48.000 jogados fora. 💸 Com a parcela do seu apê MRV (que é decrescente!), você estaria investindo no SEU patrimônio. Vamos trocar esse boleto de despesa por um de investimento?">
-                    📄 Copiar Script
-                </button>
-            </div>
-
-            <div class="card">
-                <h3>📈 7. Foco Investidor (Ponta Negra)</h3>
-                <p class="preview">"Valorização garantida..."</p>
-                <button class="action-btn copy-btn" data-text="[Nome], o Beach Plaza não é só moradia, é rentabilidade. 💰 Com a nova orla de Ponta Negra saindo, a valorização desse metro quadrado vai explodir. Quem comprar na planta agora vai pegar toda essa curva de alta. Quer ver os números de projeção?">
-                    📄 Copiar Script
-                </button>
-            </div>
         </div>
 
-        <!-- ABA 2: LINKS -->
-        <div id="tab-links" class="content">
-            
-            <h3 style="color:#004D40; margin-bottom:15px; text-align:center;">🏢 Empreendimentos MRV</h3>
-            
-            <!-- Belle Ville -->
-            <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Belle Ville (Parnamirim)</h4>
-                <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Belle+Ville+Parnamirim+MRV" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://bellevilleparnamirim.com.br/" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
-                </div>
-            </div>
-
-            <!-- Torres do Seridó -->
-            <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Torres do Seridó</h4>
-                <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Torres+do+Serido+MRV+Nova+Parnamirim" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/apartamentos/rio-grande-do-norte/parnamirim/nova-parnamirim/torres-do-serido" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
-                </div>
-            </div>
-
-            <!-- Beach Plaza -->
-            <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Beach Plaza (Ponta Negra)</h4>
-                <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Beach+Plaza+Residence+MRV+Ponta+Negra" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/apartamentos/rio-grande-do-norte/natal/ponta-negra/beach-plaza-residence" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
-                </div>
-            </div>
-
-            <!-- Barra Nova -->
-            <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Res. Barra Nova (ZN)</h4>
-                <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Barra+Nova+MRV+Natal" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/apartamentos/rio-grande-do-norte/natal/regiao-do-potengi/residencial-barra-nova" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
-                </div>
-            </div>
-
-            <!-- Cidade das Dunas -->
-            <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Cidade das Dunas (ZO)</h4>
-                <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Cidade+das+Dunas+MRV" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/natal/apartamentos-residencial-cidade-das-dunas" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ABA 3: TABELAS (NOVA) -->
+        <!-- ABA 2: TABELAS (NOVA) -->
         <div id="tab-tabelas" class="content">
             <h3 style="text-align:center; color:#004D40; margin-bottom:15px;">📊 Regras MCMV 2026 (RN)</h3>
             
@@ -475,6 +429,58 @@
                 * Valores de referência para Natal/Parnamirim (RN).<br>
                 * Juros variam conforme perfil (Cotista FGTS vs Não Cotista).
             </p>
+        </div>
+
+        <!-- ABA 3: LINKS -->
+        <div id="tab-links" class="content">
+            
+            <h3 style="color:#004D40; margin-bottom:15px; text-align:center;">🏢 Empreendimentos MRV</h3>
+            
+            <!-- Belle Ville -->
+            <div class="card" style="padding:15px; margin-bottom:15px;">
+                <h4 style="margin:0 0 10px 0; color:#00D664;">Belle Ville (Parnamirim)</h4>
+                <div style="display:flex; gap:10px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Belle+Ville+Parnamirim+MRV" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/parnamirim/apartamentos-belle-ville-parnamirim" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                </div>
+            </div>
+
+            <!-- Torres do Seridó -->
+            <div class="card" style="padding:15px; margin-bottom:15px;">
+                <h4 style="margin:0 0 10px 0; color:#00D664;">Torres do Seridó</h4>
+                <div style="display:flex; gap:10px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Torres+do+Serido+MRV+Nova+Parnamirim" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/parnamirim/apartamentos-torres-do-serido" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                </div>
+            </div>
+
+            <!-- Beach Plaza -->
+            <div class="card" style="padding:15px; margin-bottom:15px;">
+                <h4 style="margin:0 0 10px 0; color:#00D664;">Beach Plaza (Ponta Negra)</h4>
+                <div style="display:flex; gap:10px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Beach+Plaza+Residence+MRV+Ponta+Negra" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/natal/apartamentos-beach-plaza-residence" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                </div>
+            </div>
+
+            <!-- Barra Nova -->
+            <div class="card" style="padding:15px; margin-bottom:15px;">
+                <h4 style="margin:0 0 10px 0; color:#00D664;">Res. Barra Nova (ZN)</h4>
+                <div style="display:flex; gap:10px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Barra+Nova+MRV+Natal" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/natal/apartamentos-residencial-barra-nova" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                </div>
+            </div>
+
+            <!-- Cidade das Dunas -->
+            <div class="card" style="padding:15px; margin-bottom:15px;">
+                <h4 style="margin:0 0 10px 0; color:#00D664;">Cidade das Dunas (ZO)</h4>
+                <div style="display:flex; gap:10px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Cidade+das+Dunas+MRV" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/natal/apartamentos-residencial-cidade-das-dunas" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                </div>
+            </div>
+
         </div>
 
         <!-- ABA 4: ZAP -->
