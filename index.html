@@ -10,13 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #00D664;
-            --secondary-color: #004D40;
-            --bg-color: #f0f2f5;
+            --primary-color: #00D664; /* Verde MRV */
+            --secondary-color: #004D40; /* Verde Escuro */
+            --accent-color: #E67E22; /* Laranja Alerta */
+            --bg-color: #f4f7f6;
             --text-color: #333;
             --white: #ffffff;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
-            --radius: 12px;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+            --radius: 16px;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -27,25 +28,26 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            padding-bottom: 80px; /* Espaço pro menu fixo */
+            padding-bottom: 90px; /* Espaço pro menu */
         }
 
         header {
             background: linear-gradient(135deg, var(--secondary-color), #00695c);
             color: var(--white);
-            padding: 20px;
+            padding: 25px 20px 35px;
             text-align: center;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin-bottom: -20px; /* Sobreposição dos cards */
         }
 
-        header h1 { margin: 0; font-size: 1.5rem; }
-        header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
+        header h1 { margin: 0; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; }
+        header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; font-weight: 400; }
 
         main { padding: 20px; max-width: 600px; margin: 0 auto; }
 
-        /* ABAS E CONTEÚDO */
+        /* ABAS */
         .content { display: none; animation: fadeIn 0.4s ease; }
         .content.active { display: block; }
 
@@ -54,83 +56,92 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* CARD SCRIPTS */
+        /* CARDS */
         .card {
             background: var(--white);
             border-radius: var(--radius);
             padding: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             box-shadow: var(--shadow);
-            border-left: 5px solid var(--primary-color);
+            border-left: 6px solid var(--primary-color);
+            transition: transform 0.2s;
         }
+        
+        .card:active { transform: scale(0.98); }
 
-        .card h3 { margin-top: 0; color: var(--secondary-color); font-size: 1.1rem; }
-        .preview { font-size: 0.9rem; color: #666; margin-bottom: 15px; font-style: italic; }
+        .card h3 { margin-top: 0; color: var(--secondary-color); font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .preview { font-size: 0.9rem; color: #666; margin-bottom: 15px; font-style: italic; line-height: 1.4; }
 
+        /* BOTÕES */
         button.action-btn {
             width: 100%;
             padding: 14px;
             background-color: var(--secondary-color);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.1s, background 0.2s;
+            transition: background 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        button.action-btn:active { transform: scale(0.98); }
+        button.action-btn:active { background-color: #00332a; transform: translateY(1px); }
+        button.whatsapp-btn { background-color: #25D366; }
         
-        button.whatsapp-btn {
-            background-color: #25D366;
-        }
-
-        /* GRID DE LINKS */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .link-item {
-            background: var(--white);
-            padding: 20px;
-            border-radius: var(--radius);
-            text-align: center;
+        .link-btn {
             text-decoration: none;
-            color: var(--text-color);
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: white;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100px;
+            gap: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .link-item:active { transform: scale(0.95); }
-        .link-icon { font-size: 2rem; margin-bottom: 8px; }
-        .link-text { font-size: 0.9rem; font-weight: 600; }
-
-        /* INPUTS ZAP */
-        input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            outline: none;
+        /* TABELAS VISUAIS */
+        .faixa-header {
+            background: #f1f3f5;
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 15px -20px; /* Estica até a borda */
         }
+        .faixa-header .badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .faixa-body .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
+        }
+        .faixa-body .row:last-child { border-bottom: none; }
+        .destaque { background: #e8f5e9; color: var(--secondary-color); padding: 6px; border-radius: 6px; font-weight: 600; }
 
-        input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(0,214,100,0.2); }
-
-        /* MENU INFERIOR FIXO (ESTILO APP) */
+        /* MENU INFERIOR */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -139,123 +150,96 @@
             background: var(--white);
             display: flex;
             justify-content: space-around;
-            padding: 12px 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            padding: 12px 0 20px; /* Extra padding p/ iPhones novos */
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
             z-index: 100;
+            border-top: 1px solid #eee;
         }
 
         .nav-item {
             background: none;
             border: none;
-            color: #999;
-            font-size: 0.8rem;
+            color: #bdc3c7;
+            font-size: 0.75rem;
+            font-weight: 600;
             display: flex;
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            width: 25%; /* 4 botões agora */
+            width: 25%;
+            transition: color 0.2s;
         }
 
-        .nav-item i { font-size: 1.5rem; margin-bottom: 4px; } /* Ícone fake com emoji */
-        .nav-item.active { color: var(--secondary-color); font-weight: bold; }
+        .nav-item span:first-child { font-size: 1.4rem; margin-bottom: 4px; }
+        .nav-item.active { color: var(--primary-color); }
 
-        /* Feedback de Cópia */
+        /* INPUTS */
+        input {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #f9f9f9;
+        }
+        input:focus { background: #fff; border-color: var(--primary-color); outline: none; }
+
+        /* TOAST */
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #333;
+            background-color: #2d3436;
             color: #fff;
             text-align: center;
             border-radius: 50px;
-            padding: 16px;
+            padding: 14px 20px;
             position: fixed;
             z-index: 101;
             left: 50%;
-            bottom: 90px;
-            transform: translateX(-50%);
-            font-size: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s, bottom 0.3s;
-        }
-
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
             bottom: 100px;
-        }
-
-        /* CARDS DE FAIXA */
-        .faixa-card {
-            padding: 0;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .faixa-header {
-            background: #f8f9fa;
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faixa-header .badge {
-            background: #00D664;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .faixa-header .renda {
-            font-size: 0.9rem;
-            color: #555;
+            transform: translateX(-50%);
+            font-size: 0.95rem;
             font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s;
         }
-
-        .faixa-body {
-            padding: 15px;
-        }
-
-        .faixa-body .row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 5px;
-        }
-
-        .faixa-body .row:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .faixa-body .destaque {
-            color: #004D40;
-            background: #e0f2f1;
-            padding: 5px;
-            border-radius: 4px;
-            margin: 5px 0;
-        }
+        #toast.show { visibility: visible; opacity: 1; bottom: 110px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>🏆 Champions MRV</h1>
-        <p>Seu Canivete Suíço de Vendas</p>
+        <p>Alta Performance em Vendas</p>
     </header>
 
     <main>
         <!-- ABA 1: SCRIPTS -->
         <div id="tab-scripts" class="content active">
             
-            <!-- SEÇÃO: INTERMEDIÁRIOS (NEGOCIAÇÃO) -->
+            <h3 style="color:#666; font-size:0.9rem; text-transform:uppercase; margin-bottom:15px; letter-spacing:1px;">Negociação & Fechamento</h3>
+
+            <!-- Intermediários -->
             <div class="card">
-                <h3>🤔 1. Quebra de Objeção (Aluguel)</h3>
+                <h3>🤝 Conexão (Sem Pressão)</h3>
+                <p class="preview">"Meu papel não é só vender..."</p>
+                <button class="action-btn copy-btn" data-text="Oi [Nome], tudo bem? Aqui é o Junior. Tô passando pra dizer que meu papel aqui não é te empurrar um apê, é te ajudar a entender se esse é o momento certo pra você realizar esse sonho. Sem pressão, bora bater um papo pra eu entender o que você precisa?">
+                    📄 Copiar Script
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>🔎 Diagnóstico Rápido</h3>
+                <p class="preview">"Pra não te mandar coisa errada..."</p>
+                <button class="action-btn copy-btn" data-text="[Nome], pra eu ser assertivo e não encher seu WhatsApp de coisa que não tem nada a ver: 1. Você busca pra morar ou investir? 2. Tem urgência pra mudar ou tá planejando com calma?">
+                    📄 Copiar Script
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>🤔 Quebra de Objeção (Aluguel)</h3>
                 <p class="preview">"Pagar aluguel ou parcelar..."</p>
                 <button class="action-btn copy-btn" data-text="[Nome], fiz uma conta rápida aqui: R$ 800 de aluguel em 5 anos são R$ 48.000 jogados fora. 💸 Com a parcela do seu apê MRV (que é decrescente!), você estaria investindo no SEU patrimônio. Vamos trocar esse boleto de despesa por um de investimento?">
                     📄 Copiar Script
@@ -263,7 +247,7 @@
             </div>
 
             <div class="card">
-                <h3>📉 2. Urgência (Virada de Tabela)</h3>
+                <h3>📉 Urgência (Virada de Tabela)</h3>
                 <p class="preview">"A tabela vai mudar..."</p>
                 <button class="action-btn copy-btn" data-text="[Nome], preciso ser transparente: a tabela de preços vira amanhã e essas condições de juros reduzidos podem não se manter. 📉 Consegue me enviar a documentação até as 17h pra eu tentar travar sua proposta no sistema antigo?">
                     📄 Copiar Script
@@ -271,42 +255,42 @@
             </div>
 
             <div class="card">
-                <h3>💰 3. Foco Investidor (Rentabilidade)</h3>
+                <h3>💰 Foco Investidor (Rentabilidade)</h3>
                 <p class="preview">"Valorização da região..."</p>
                 <button class="action-btn copy-btn" data-text="[Nome], esse imóvel não é só moradia, é rentabilidade. 💰 Com a valorização da região [Bairro], quem comprar na planta agora pega toda a curva de alta. Daqui a 2 anos, esse ágio vai valer muito. Quer ver os números?">
                     📄 Copiar Script
                 </button>
             </div>
 
-            <!-- SEÇÃO: FOLLOW-UP (RESGATE) -->
-            <h3 style="color:#004D40; margin:25px 0 15px; text-align:center;">🔄 Follow-up (Resgate)</h3>
+            <!-- Follow-up -->
+            <h3 style="color:#E67E22; font-size:0.9rem; text-transform:uppercase; margin:30px 0 15px; letter-spacing:1px; text-align:center;">🔄 Resgate de Clientes</h3>
 
-            <div class="card" style="border-left: 5px solid #E67E22;">
-                <h3>👻 4. O "Sumido" (Técnica do Desapego)</h3>
+            <div class="card" style="border-left-color: #E67E22;">
+                <h3 style="color:#E67E22;">👻 O "Sumido" (Desapego)</h3>
                 <p class="preview">"Posso encerrar seu atendimento?"</p>
-                <button class="action-btn copy-btn" data-text="Oi [Nome], tudo bem? Tô organizando minha agenda aqui e vi que nossa conversa parou. Você ainda tem interesse no apê ou já resolveu essa questão? Se não tiver mais interesse, me avisa que eu arquivo sua ficha aqui pra não te incomodar, beleza?">
+                <button class="action-btn copy-btn" style="background-color:#E67E22;" data-text="Oi [Nome], tudo bem? Tô organizando minha agenda aqui e vi que nossa conversa parou. Você ainda tem interesse no apê ou já resolveu essa questão? Se não tiver mais interesse, me avisa que eu arquivo sua ficha aqui pra não te incomodar, beleza?">
                     📄 Copiar Script
                 </button>
             </div>
 
-            <div class="card" style="border-left: 5px solid #E67E22;">
-                <h3>📅 5. Resgate Mensal (Novas Condições)</h3>
+            <div class="card" style="border-left-color: #E67E22;">
+                <h3 style="color:#E67E22;">📅 Resgate Mensal (Novas Condições)</h3>
                 <p class="preview">"Mudou a regra do mês..."</p>
-                <button class="action-btn copy-btn" data-text="Oi [Nome], faz um tempo que a gente se falou! 👋 As condições do Minha Casa Minha Vida mudaram agora para esse mês (taxas e subsídios). Quer que eu atualize sua simulação sem compromisso pra ver se seu poder de compra aumentou?">
+                <button class="action-btn copy-btn" style="background-color:#E67E22;" data-text="Oi [Nome], faz um tempo que a gente se falou! 👋 As condições do Minha Casa Minha Vida mudaram agora para esse mês (taxas e subsídios). Quer que eu atualize sua simulação sem compromisso pra ver se seu poder de compra aumentou?">
                     📄 Copiar Script
                 </button>
             </div>
 
-            <div class="card" style="border-left: 5px solid #E67E22;">
-                <h3>🏗️ 6. Novidade na Obra (Prova Social)</h3>
+            <div class="card" style="border-left-color: #E67E22;">
+                <h3 style="color:#E67E22;">🏗️ Novidade na Obra</h3>
                 <p class="preview">"A obra avançou..."</p>
-                <button class="action-btn copy-btn" data-text="[Nome], passei hoje na obra do [Empreendimento] e lembrei de você! 🏗️ Tá subindo rápido demais. Liberaram umas unidades com vista livre que são a sua cara. Bora retomar aquele papo antes que acabem?">
+                <button class="action-btn copy-btn" style="background-color:#E67E22;" data-text="[Nome], passei hoje na obra do [Empreendimento] e lembrei de você! 🏗️ Tá subindo rápido demais. Liberaram umas unidades com vista livre que são a sua cara. Bora retomar aquele papo antes que acabem?">
                     📄 Copiar Script
                 </button>
             </div>
             
              <div class="card">
-                <h3>📝 7. Checklist Documentos</h3>
+                <h3>📝 Checklist Documentos</h3>
                 <p class="preview">Lista completa pra aprovação...</p>
                 <button class="action-btn copy-btn" data-text="Pra gente aprovar sua carta de crédito, preciso de fotos legíveis de: 
 ✅ RG e CPF (ou CNH)
@@ -321,12 +305,12 @@
             </div>
         </div>
 
-        <!-- ABA 2: TABELAS (NOVA) -->
+        <!-- ABA 2: TABELAS -->
         <div id="tab-tabelas" class="content">
-            <h3 style="text-align:center; color:#004D40; margin-bottom:15px;">📊 Regras MCMV 2026 (RN)</h3>
+            <h3 style="text-align:center; color:#004D40; margin-bottom:20px;">📊 Regras MCMV 2026 (RN)</h3>
             
             <!-- FAIXA 1 -->
-            <div class="card faixa-card" style="border-left: 5px solid #00D664;">
+            <div class="card faixa-card">
                 <div class="faixa-header">
                     <span class="badge">Faixa 1</span>
                     <span class="renda">Até R$ 2.850</span>
@@ -352,9 +336,9 @@
             </div>
 
             <!-- FAIXA 2 -->
-            <div class="card faixa-card" style="border-left: 5px solid #2ecc71;">
+            <div class="card faixa-card" style="border-left-color: #2ecc71;">
                 <div class="faixa-header">
-                    <span class="badge">Faixa 2</span>
+                    <span class="badge" style="background:#2ecc71;">Faixa 2</span>
                     <span class="renda">R$ 2.850 a R$ 4.700</span>
                 </div>
                 <div class="faixa-body">
@@ -378,7 +362,7 @@
             </div>
 
             <!-- FAIXA 3 -->
-            <div class="card faixa-card" style="border-left: 5px solid #f1c40f;">
+            <div class="card faixa-card" style="border-left-color: #f1c40f;">
                 <div class="faixa-header">
                     <span class="badge" style="background:#f1c40f; color:#333;">Faixa 3</span>
                     <span class="renda">R$ 4.700 a R$ 8.600</span>
@@ -403,10 +387,10 @@
                 </div>
             </div>
 
-            <!-- FAIXA 4 / SBPE -->
-            <div class="card faixa-card" style="border-left: 5px solid #e74c3c;">
+            <!-- FAIXA 4 -->
+            <div class="card faixa-card" style="border-left-color: #e74c3c;">
                 <div class="faixa-header">
-                    <span class="badge" style="background:#e74c3c;">Faixa 4 (SBPE)</span>
+                    <span class="badge" style="background:#e74c3c;">SBPE / Faixa 4</span>
                     <span class="renda">R$ 8.600 a R$ 12.000</span>
                 </div>
                 <div class="faixa-body">
@@ -424,76 +408,69 @@
                     </div>
                 </div>
             </div>
-            
-            <p style="text-align:center; font-size:0.8rem; color:#666; margin-top:20px;">
-                * Valores de referência para Natal/Parnamirim (RN).<br>
-                * Juros variam conforme perfil (Cotista FGTS vs Não Cotista).
-            </p>
         </div>
 
         <!-- ABA 3: LINKS -->
         <div id="tab-links" class="content">
-            
-            <h3 style="color:#004D40; margin-bottom:15px; text-align:center;">🏢 Empreendimentos MRV</h3>
+            <h3 style="text-align:center; color:#004D40; margin-bottom:20px;">🏢 Empreendimentos MRV</h3>
             
             <!-- Belle Ville -->
             <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Belle Ville (Parnamirim)</h4>
+                <h4 style="margin:0 0 12px 0; color:#00D664; font-size:1.1rem;">Belle Ville (Parnamirim)</h4>
                 <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Belle+Ville+Parnamirim+MRV" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/parnamirim/apartamentos-belle-ville-parnamirim" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Belle+Ville+Parnamirim+MRV" target="_blank" class="link-btn" style="background:#4285F4;">📍 Localização</a>
+                    <a href="https://bellevilleparnamirim.com.br/" target="_blank" class="link-btn" style="background:#00D664;">🌐 Site Oficial</a>
                 </div>
             </div>
 
             <!-- Torres do Seridó -->
             <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Torres do Seridó</h4>
+                <h4 style="margin:0 0 12px 0; color:#00D664; font-size:1.1rem;">Torres do Seridó</h4>
                 <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Torres+do+Serido+MRV+Nova+Parnamirim" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/parnamirim/apartamentos-torres-do-serido" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Torres+do+Serido+MRV+Nova+Parnamirim" target="_blank" class="link-btn" style="background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/apartamentos/rio-grande-do-norte/parnamirim/nova-parnamirim/torres-do-serido" target="_blank" class="link-btn" style="background:#00D664;">🌐 Site Oficial</a>
                 </div>
             </div>
 
             <!-- Beach Plaza -->
             <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Beach Plaza (Ponta Negra)</h4>
+                <h4 style="margin:0 0 12px 0; color:#00D664; font-size:1.1rem;">Beach Plaza (Ponta Negra)</h4>
                 <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Beach+Plaza+Residence+MRV+Ponta+Negra" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/natal/apartamentos-beach-plaza-residence" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Beach+Plaza+Residence+MRV+Ponta+Negra" target="_blank" class="link-btn" style="background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/apartamentos/rio-grande-do-norte/natal/ponta-negra/beach-plaza-residence" target="_blank" class="link-btn" style="background:#00D664;">🌐 Site Oficial</a>
                 </div>
             </div>
 
             <!-- Barra Nova -->
             <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Res. Barra Nova (ZN)</h4>
+                <h4 style="margin:0 0 12px 0; color:#00D664; font-size:1.1rem;">Res. Barra Nova (ZN)</h4>
                 <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Barra+Nova+MRV+Natal" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/natal/apartamentos-residencial-barra-nova" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Barra+Nova+MRV+Natal" target="_blank" class="link-btn" style="background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/apartamentos/rio-grande-do-norte/natal/regiao-do-potengi/residencial-barra-nova" target="_blank" class="link-btn" style="background:#00D664;">🌐 Site Oficial</a>
                 </div>
             </div>
 
             <!-- Cidade das Dunas -->
             <div class="card" style="padding:15px; margin-bottom:15px;">
-                <h4 style="margin:0 0 10px 0; color:#00D664;">Cidade das Dunas (ZO)</h4>
+                <h4 style="margin:0 0 12px 0; color:#00D664; font-size:1.1rem;">Cidade das Dunas (ZO)</h4>
                 <div style="display:flex; gap:10px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Cidade+das+Dunas+MRV" target="_blank" class="action-btn" style="text-decoration:none; text-align:center; background:#4285F4;">📍 Localização</a>
-                    <a href="https://www.mrv.com.br/imoveis/rio-grande-do-norte/natal/apartamentos-residencial-cidade-das-dunas" target="_blank" class="action-btn" style="text-decoration:none; text-align:center;">🌐 Site Oficial</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Residencial+Cidade+das+Dunas+MRV" target="_blank" class="link-btn" style="background:#4285F4;">📍 Localização</a>
+                    <a href="https://www.mrv.com.br/imoveis/apartamentos/rio-grande-do-norte/natal/apartamentos-residencial-cidade-das-dunas" target="_blank" class="link-btn" style="background:#00D664;">🌐 Site Oficial</a>
                 </div>
             </div>
-
         </div>
 
         <!-- ABA 4: ZAP -->
         <div id="tab-zap" class="content">
-            <div class="card" style="border-left-color: #25D366;">
-                <h3>⚡ Zap Rápido</h3>
+            <div class="card" style="border-left-color: #25D366; text-align:center;">
+                <h3 style="color:#25D366; justify-content:center;">⚡ Zap Rápido</h3>
                 <p class="preview">Chame o cliente sem salvar na agenda.</p>
                 
                 <input type="number" id="zapNumber" placeholder="DDD + Número (ex: 84999998888)">
-                <input type="text" id="zapMsg" placeholder="Mensagem (Opcional)">
+                <input type="text" id="zapMsg" placeholder="Mensagem opcional">
                 
                 <button id="btnZap" class="action-btn whatsapp-btn">
-                    🚀 Abrir WhatsApp
+                    🚀 Iniciar Conversa
                 </button>
             </div>
         </div>
@@ -508,7 +485,7 @@
             <span>📊</span> Tabelas
         </button>
         <button class="nav-item" onclick="switchTab('links')">
-            <span>🔗</span> Links
+            <span>🏢</span> Links
         </button>
         <button class="nav-item" onclick="switchTab('zap')">
             <span>⚡</span> Zap
@@ -519,16 +496,12 @@
     <div id="toast">Copiado com sucesso! ✅</div>
 
     <script>
-        // Lógica de Abas
         function switchTab(tabName) {
-            // Remove active de tudo
             document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
 
-            // Ativa o selecionado
             document.getElementById('tab-' + tabName).classList.add('active');
             
-            // Ativa botão correspondente
             const buttons = document.querySelectorAll('.nav-item');
             if(tabName === 'scripts') buttons[0].classList.add('active');
             if(tabName === 'tabelas') buttons[1].classList.add('active');
@@ -536,7 +509,6 @@
             if(tabName === 'zap') buttons[3].classList.add('active');
         }
 
-        // Lógica de Copiar
         document.querySelectorAll('.copy-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const text = btn.getAttribute('data-text');
@@ -548,15 +520,13 @@
             });
         });
 
-        // Toast
         function showToast(message) {
             const toast = document.getElementById("toast");
             toast.innerText = message;
             toast.className = "show";
-            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
         }
 
-        // Zap Rápido
         document.getElementById('btnZap').addEventListener('click', () => {
             const num = document.getElementById('zapNumber').value.replace(/\D/g, '');
             const msg = document.getElementById('zapMsg').value;
