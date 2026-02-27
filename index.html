@@ -136,6 +136,24 @@
             text-transform: none;
         }
 
+        /* SIMULATOR BUTTONS (NEW) */
+        .btn-sim {
+            background-color: var(--input-bg);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .btn-sim:hover { background-color: var(--primary); color: #000; }
+        .btn-sim span { margin-right: 8px; font-size: 1.2rem; }
+
         /* CALCULATOR RESULT */
         .result-box {
             background: rgba(0, 214, 100, 0.1);
@@ -215,7 +233,7 @@
             align-items: center;
             gap: 4px;
             cursor: pointer;
-            width: 20%;
+            width: 25%;
         }
         .nav-item span { font-size: 1.4rem; }
         .nav-item.active { color: var(--primary); }
@@ -254,49 +272,8 @@
     </header>
 
     <main>
-        <!-- ABA 1: CALCULADORA -->
-        <div id="tab-calc" class="content active">
-            <div class="card">
-                <h2>🧮 Simulação Rápida</h2>
-                <div class="input-group">
-                    <label>Renda Bruta Familiar (R$)</label>
-                    <input type="number" id="renda" placeholder="Ex: 3500">
-                </div>
-                
-                <div class="checks">
-                    <label class="checkbox-container">
-                        <input type="checkbox" id="fgts">
-                        <span class="checkmark"></span>
-                        +3 Anos FGTS
-                    </label>
-                    <label class="checkbox-container">
-                        <input type="checkbox" id="dep">
-                        <span class="checkmark"></span>
-                        Dependente
-                    </label>
-                </div>
-
-                <button id="btn-simular" class="btn btn-primary">SIMULAR AGORA</button>
-
-                <div id="result" class="result-box hidden">
-                    <div class="result-item">
-                        <span>Faixa MCMV</span>
-                        <strong id="res-faixa">-</strong>
-                    </div>
-                    <div class="result-item">
-                        <span>Taxa de Juros</span>
-                        <strong id="res-juros">-</strong>
-                    </div>
-                    <div class="result-item highlight">
-                        <span>Subsídio Máximo</span>
-                        <strong id="res-subsidio">-</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ABA 2: SCRIPTS -->
-        <div id="tab-scripts" class="content">
+        <!-- ABA 1: SCRIPTS (Agora a principal) -->
+        <div id="tab-scripts" class="content active">
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                     <h2 style="margin:0; border:none;">📜 Scripts de Venda</h2>
@@ -318,8 +295,18 @@
             </div>
         </div>
 
-        <!-- ABA 3: TABELAS -->
+        <!-- ABA 2: TABELAS (Com Simuladores) -->
         <div id="tab-tabelas" class="content">
+            <div class="card">
+                <h3 style="margin-bottom:15px;">🏦 Simuladores CAIXA</h3>
+                <a href="https://simuladorhabitacao.caixa.gov.br/calculadora" target="_blank" class="btn-sim">
+                    <span>🆕</span> Simulador Novo
+                </a>
+                <a href="https://www8.caixa.gov.br/" target="_blank" class="btn-sim">
+                    <span>👴</span> Simulador Antigo
+                </a>
+            </div>
+
             <div class="card">
                 <h2>📊 Novas Regras 2026</h2>
                 
@@ -370,7 +357,7 @@
             </div>
         </div>
 
-        <!-- ABA 4: LINKS (Restaurada) -->
+        <!-- ABA 3: LINKS -->
         <div id="tab-links" class="content">
             <!-- Dunas Park -->
             <div class="card">
@@ -469,7 +456,7 @@
             </div>
         </div>
 
-        <!-- ABA 5: ZAP -->
+        <!-- ABA 4: ZAP -->
         <div id="tab-zap" class="content">
             <div class="card" style="text-align:center;">
                 <h2 style="border:none; color:#25D366;">⚡ Zap Rápido</h2>
@@ -487,10 +474,7 @@
 
     <!-- MENU -->
     <nav class="bottom-nav">
-        <button class="nav-item active" onclick="switchTab('calc', this)">
-            <span>🧮</span> Calc
-        </button>
-        <button class="nav-item" onclick="switchTab('scripts', this)">
+        <button class="nav-item active" onclick="switchTab('scripts', this)">
             <span>📜</span> Scripts
         </button>
         <button class="nav-item" onclick="switchTab('tabelas', this)">
@@ -517,35 +501,6 @@
                 btn.classList.add('active');
             }
         }
-
-        // --- CALCULADORA ---
-        document.getElementById('btn-simular').addEventListener('click', () => {
-            const r = parseFloat(document.getElementById('renda').value);
-            const fgts = document.getElementById('fgts').checked;
-            
-            if(!r) return alert('Digite a renda!');
-
-            let f='SBPE', j='10-12%', s='Zero';
-
-            if(r <= 2850) {
-                f = 'Faixa 1';
-                j = fgts ? '4.00%' : '4.25%';
-                s = 'Até R$ 55.000';
-            } else if(r <= 4700) {
-                f = 'Faixa 2';
-                j = fgts ? '4.75%' : '5.00%';
-                s = 'Até R$ 35.000';
-            } else if(r <= 8600) {
-                f = 'Faixa 3';
-                j = '7.66% - 8.16%';
-                s = 'Até R$ 20.000';
-            }
-
-            document.getElementById('res-faixa').innerText = f;
-            document.getElementById('res-juros').innerText = j;
-            document.getElementById('res-subsidio').innerText = s;
-            document.getElementById('result').classList.remove('hidden');
-        });
 
         // --- SCRIPTS ---
         const defaultScripts = [
